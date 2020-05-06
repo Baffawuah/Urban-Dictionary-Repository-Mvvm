@@ -1,4 +1,4 @@
-package com.example.week4day4urbandic;
+package com.example.urbandic;
 
 import android.content.Context;
 

@@ -1,6 +1,5 @@
-package com.example.week4day4urbandic.model;
+package com.example.urbandic.model;
 
-import java.util.Comparator;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 

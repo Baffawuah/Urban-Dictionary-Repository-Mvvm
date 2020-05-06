@@ -1,4 +1,4 @@
-package com.example.week4day4urbandic;
+package com.example.urbandic;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,12 +6,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.week4day4urbandic.model.ListItem;
+import com.example.urbandic.model.ListItem;
 
 import android.view.View;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.example.week4day4urbandic;
+package com.example.urbandic;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,23 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.week4day4urbandic.datasource.events.WordResponseEvent;
-import com.example.week4day4urbandic.datasource.remote.retrofit.ObserverWordResponse;
-import com.example.week4day4urbandic.datasource.remote.retrofit.RetrofitHelper;
-import com.example.week4day4urbandic.model.ListItem;
+import com.example.urbandic.datasource.events.WordResponseEvent;
+import com.example.urbandic.datasource.remote.retrofit.ObserverWordResponse;
+import com.example.urbandic.datasource.remote.retrofit.RetrofitHelper;
+import com.example.urbandic.model.ListItem;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 

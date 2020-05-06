@@ -1,6 +1,6 @@
-package com.example.week4day4urbandic.datasource.events;
+package com.example.urbandic.datasource.events;
 
-import com.example.week4day4urbandic.model.WordResponse;
+import com.example.urbandic.model.WordResponse;
 
 public class WordResponseEvent {
     WordResponse wordResponse;

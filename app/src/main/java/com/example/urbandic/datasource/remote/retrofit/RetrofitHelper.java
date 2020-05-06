@@ -1,17 +1,10 @@
-package com.example.week4day4urbandic.datasource.remote.retrofit;
-
-import com.example.week4day4urbandic.model.WordResponse;
-
-import org.greenrobot.eventbus.EventBus;
+package com.example.urbandic.datasource.remote.retrofit;
 
 import java.io.IOException;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
