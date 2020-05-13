@@ -1,4 +1,4 @@
-package com.example.urbandic;
+package com.example.urbandic.model.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.urbandic.model.ListItem;
+import com.example.urbandic.R;
+import com.example.urbandic.model.WordResponse.ListItem;
 
 import android.view.View;
 import android.widget.TextView;

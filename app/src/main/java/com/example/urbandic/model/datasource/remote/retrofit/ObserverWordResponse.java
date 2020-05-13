@@ -1,9 +1,9 @@
-package com.example.urbandic.datasource.remote.retrofit;
+package com.example.urbandic.model.datasource.remote.retrofit;
 
 import android.util.Log;
 
-import com.example.urbandic.datasource.events.WordResponseEvent;
-import com.example.urbandic.model.WordResponse;
+import com.example.urbandic.model.datasource.events.WordResponseEvent;
+import com.example.urbandic.model.WordResponse.WordResponse;
 
 import org.greenrobot.eventbus.EventBus;
 

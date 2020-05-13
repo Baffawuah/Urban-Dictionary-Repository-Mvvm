@@ -1,4 +1,4 @@
-package com.example.urbandic.datasource.remote.retrofit;
+package com.example.urbandic.model.datasource.remote.retrofit;
 
 import java.io.IOException;
 

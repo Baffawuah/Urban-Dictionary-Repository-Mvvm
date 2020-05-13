@@ -1,6 +1,6 @@
-package com.example.urbandic.datasource.events;
+package com.example.urbandic.model.datasource.events;
 
-import com.example.urbandic.model.WordResponse;
+import com.example.urbandic.model.WordResponse.WordResponse;
 
 public class WordResponseEvent {
     WordResponse wordResponse;
