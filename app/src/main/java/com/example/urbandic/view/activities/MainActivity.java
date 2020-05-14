@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Application;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,21 +19,27 @@ import com.example.urbandic.model.adapters.WordsRVAdapter;
 import com.example.urbandic.model.WordResponse.ListItem;
 
 import com.example.urbandic.viewmodel.MainActivityViewModel;
-
+import com.example.urbandic.viewmodel.ViewModelProviderFactory;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
+import dagger.android.support.DaggerAppCompatActivity;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends DaggerAppCompatActivity {
     ArrayList<ListItem> defList;
 
     //getting the viewModel working
     MainActivityViewModel mainActivityViewModel;
     ActivityMainBinding binding;
+
+    @Inject
+    ViewModelProviderFactory providerFactory;
 
     RecyclerView recyclerView;
     WordsRVAdapter adapter;
@@ -45,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //viewModel
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        mainActivityViewModel = new ViewModelProvider(this, providerFactory).get(MainActivityViewModel.class);
+        //mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
         binding.setViewModel(mainActivityViewModel);

@@ -2,6 +2,11 @@ package com.example.urbandic.model.datasource.remote.retrofit;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Module;
+import dagger.Provides;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -9,6 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+@Module
 public class RetrofitHelper {
     //Constants
     public static final String BASE_URL = "https://mashape-community-urban-dictionary.p.rapidapi.com/";
@@ -17,6 +23,8 @@ public class RetrofitHelper {
     public static final String HOST = "mashape-community-urban-dictionary.p.rapidapi.com";
     public static final String API_KEY = "5979840fccmshba9afde82378ea8p1ad9e2jsn2a0d8e666d6a";
 
+    @Singleton
+    @Provides
     public static Retrofit getRetrofitInstance() {
 
         //Preparing the header we have to build an okhttp client in order to nest the key for the request
@@ -45,6 +53,7 @@ public class RetrofitHelper {
                 .client(okHttpClient)
                 .build();
     }
+
     public static WordResponseService getService(){
         return getRetrofitInstance().create(WordResponseService.class);
     }

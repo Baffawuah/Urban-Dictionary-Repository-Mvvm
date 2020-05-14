@@ -3,41 +3,29 @@ package com.example.urbandic.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.urbandic.model.WordResponse.WordResponse
-import com.example.urbandic.model.datasource.remote.retrofit.WordResponseService
 import com.example.urbandic.model.datasource.repository.EventRepository
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 
-class MainActivityViewModel : ViewModel() {
+class MainActivityViewModel @Inject constructor() : ViewModel() {
     val TAG = "NETCALL"
 
     var searchTerm : MutableLiveData<String>
     var wordData : MutableLiveData<WordResponse>
-    val repo : EventRepository
+    @Inject
+    lateinit var repository: EventRepository
+
     // sets up the repo and liveData
     init {
         searchTerm = MutableLiveData<String>()
         wordData = MutableLiveData<WordResponse>()
-        repo = EventRepository
     }
 
     fun DataCall() : Observable<WordResponse> {
         // define the function here
         // return an observable to be consumed
-        return WordResponseService
-                .createService()
+        return repository
                 .getWordResponse(searchTerm.value)
     }
-
-    fun searchFunc() {
-
-        wordData = EventRepository.getWordResponse(searchTerm.value)!!
-        DataCall()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe{}
-    }
-
 }

@@ -1,28 +1,21 @@
 package com.example.urbandic.model.datasource.repository
 
-import androidx.lifecycle.MutableLiveData
 import com.example.urbandic.model.WordResponse.WordResponse
 import com.example.urbandic.model.datasource.remote.retrofit.WordResponseService
-import com.example.urbandic.model.datasource.remote.retrofit.WordResponseService.Companion.createService
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-object EventRepository {
-    // todo dagger this up
-    private var wordResponse: WordResponseService? = null
+class EventRepository @Inject constructor(){
 
-    //singleton Repository to get instance of connection for the app
-    init {
-        wordResponse = createService()
-    }
+    private var wordResponse: WordResponseService = WordResponseService.createService()
 
-    fun getWordResponse(term: String?): MutableLiveData<WordResponse>? {
-        val wordData = MutableLiveData<WordResponse>()
+    fun getWordResponse(term: String?): Observable<WordResponse> {
         //make the call for the data
         val t = wordResponse!!.getWordResponse(term)
-        t.subscribeOn(Schedulers.io())
+        val wordData = t.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe{ wordData.value = it}
         return wordData
     }
 }

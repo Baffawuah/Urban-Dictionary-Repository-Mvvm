@@ -5,8 +5,7 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface WordResponseService {
-
+interface  WordResponseService {
     companion object {
         fun createService() : WordResponseService =
                 RetrofitHelper.getRetrofitInstance().create(WordResponseService::class.java)
